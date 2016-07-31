@@ -208,7 +208,7 @@ public class InterServerHandler {
         //c.getSession().write(JobPacket.addStolenSkill());
         
         player.getMap().addPlayer(player);
-        /*try {
+       /* try {
             // Start of buddylist
             final int buddyIds[] = player.getBuddylist().getBuddyIds();
             World.Buddy.loggedOn(player.getName(), player.getId(), c.getChannel(), buddyIds);
@@ -264,22 +264,24 @@ public class InterServerHandler {
             //c.getSession().write(FamilyPacket.getFamilyInfo(player));
         } catch (Exception e) {
             FileoutputUtil.outputFileError(FileoutputUtil.Login_Error, e);
-        }
+        } */
         player.getClient().getSession().write(CWvsContext.broadcastMsg(channelServer.getServerMessage()));
-        /*player.sendMacros();
-        player.showNote();
-        player.sendImp();
-        player.updatePartyMemberHP();
-        player.startFairySchedule(false);
-        player.baseSkills(); //fix people who've lost skills.
-        if (GameConstants.isZero(player.getJob())) {
-            c.getSession().write(CWvsContext.updateSkills(player.getSkills(), false));
-        }
+        
+        //player.sendMacros();
+        //player.showNote();
+        //player.sendImp();
+        //player.updatePartyMemberHP();
+        //player.startFairySchedule(false);
+        //player.baseSkills(); //fix people who've lost skills.
+        
+        //if (GameConstants.isZero(player.getJob())) {
+          //  c.getSession().write(CWvsContext.updateSkills(player.getSkills(), false));
+        //}
         //c.getSession().write(CField.getKeymap(player.getKeyLayout()));
         //player.updatePetAuto();
         //player.expirationTask(true, transfer == null);
         //c.getSession().write(CWvsContext.updateMaplePoint(player.getCSPoints(2)));
-        
+        /*
          int[] warriorz = {25121131, 20050012, 20050073, 80001155, 80000000, 80000001, 80000002, 80000005, 80000006, 80001140, 80000050, 80000047, 80001040, 20051284, 20050285, 20051287, 25100010, 20050286, 20051251, 25120113, 25121116, 25001000, 25111111, 25120214, 25111206, 25120133, 25121030, 25121131, 71000251, 25110107, 25120112, 25110108, 25121108, 25120115, 25121211, 25120110, 25121209, 25100106, 25110210, 25111209, 25100009, 25100108, 25101111, 25100107, 25001204, 25000105, 25101205, 25101000};
             for (int i = 0; i < warriorz.length; i++) {
                 c.getSession().write(CWvsContext.updateSkill(list, warriorz[i], c.getPlayer().getOriginSkillLevel(warriorz[i]), c.getPlayer().getMasterLevel(warriorz[i]), -1L));
@@ -297,15 +299,15 @@ public class InterServerHandler {
         }
         //player.spawnClones();
         //player.spawnSavedPets();
-        /*if (player.getStat().equippedSummon > 0) {
+        if (player.getStat().equippedSummon > 0) {
             SkillFactory.getSkill(player.getStat().equippedSummon + (GameConstants.getBeginnerJob(player.getJob()) * 1000)).getEffect(1).applyTo(player);
-        }*/
+        }
         //MapleQuestStatus stat = player.getQuestNoAdd(MapleQuest.getInstance(GameConstants.PENDANT_SLOT));
         //c.getSession().write(CWvsContext.pendantSlot(stat != null && stat.getCustomData() != null && Long.parseLong(stat.getCustomData()) > System.currentTimeMillis()));
         //stat = player.getQuestNoAdd(MapleQuest.getInstance(GameConstants.QUICK_SLOT));
         //c.getSession().write(CField.quickSlot(stat != null && stat.getCustomData() != null ? stat.getCustomData() : null));
         // c.getSession().write(CWvsContext.getFamiliarInfo(player));
-        /*MapleInventory equipped = player.getInventory(MapleInventoryType.EQUIPPED);
+        MapleInventory equipped = player.getInventory(MapleInventoryType.EQUIPPED);
         MapleInventory equip = player.getInventory(MapleInventoryType.EQUIP);
         List<Short> slots = new ArrayList<>();
         for (Item item : equipped.newList()) {
@@ -315,7 +317,8 @@ public class InterServerHandler {
             if (GameConstants.isIllegalItem(equipped.getItem(slot).getItemId())) {
                 MapleInventoryManipulator.removeFromSlot(player.getClient(), MapleInventoryType.EQUIPPED, slot, (short) 1, false);
             }
-        }*/
+        }
+        
         //c.getSession().write(CWvsContext.shopDiscount(ServerConstants.SHOP_DISCOUNT));
         //List<Pair<Integer, String>> npcs = new ArrayList<>();
         //npcs.add(new Pair<>(9070006, "Why...why has this happened to me? My knightly honor... My knightly pride..."));
@@ -340,8 +343,8 @@ public class InterServerHandler {
             Equip b = (Equip) player.getInventory(MapleInventoryType.EQUIPPED).getItem((short) -10);
             if (GameConstants.getWeaponType(b.getItemId()) == MapleWeaponType.BIG_SWORD) {
                 player.getInventory(MapleInventoryType.EQUIPPED).removeItem((short) -10);
-            }
-        }*/
+            }*/
+        
         } catch (Exception Ex) {
         	Ex.printStackTrace();
         }

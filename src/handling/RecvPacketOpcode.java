@@ -19,7 +19,7 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 	CLIENT_HELLO(false, (short) 0x67),
 	CLIENT_CHECK(false, (short) 0x98), // new opcode
 	UNKN_CHECK(false, (short) 0x9A),
-        USE_AUTH_SERVER(false,(short) 0xAB),
+    USE_AUTH_SERVER(false,(short) 0xAB),
 
 	/*
 	 * Login Opcodes.
@@ -58,7 +58,7 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 	 * Channel Opcodes.
 	 * Used for in-game packets.
 	 */
-        BURN_RECIEVE(false, (short) 0x219),
+     BURN_RECIEVE(false, (short) 0x219),
 	CHANGE_MAP(true, (short) 0xAF),
 	CHANGE_CHANNEL(true, (short) 0xB0),
 	ENTER_CASH_SHOP(true, (short) 0xB4),
@@ -209,7 +209,9 @@ public enum RecvPacketOpcode implements WritableIntValueHolder {
 	NOTE_ACTION(true, (short) 0x999),//127
 	USE_DOOR(true, (short) 0x13A),//131
 	USE_MECH_DOOR(true, (short) 0x13B),//132
-	CHANGE_KEYMAP(true, (short) 0x13D), //134
+	
+	CHANGE_KEYMAP(true, (short) 0x19E), //134
+	
 	RPS_GAME(true, (short) 0x135),
 	RING_ACTION(true, (short) 0x999),
 	WEDDING_ACTION(true, (short) 0x137),

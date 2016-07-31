@@ -48,6 +48,7 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 
 	EVENT_CROWN((short) 0x118),
 	WARP_TO_MAP((short) 0x1AC),
+	
 	///////Monster////////
 	SPAWN_MONSTER((short) 0x389),//23D
 	KILL_MONSTER((short) 0x38A),//23E
@@ -63,8 +64,6 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	SHOW_MAGNET((short) 0x39D),//24D
 	ITEM_EFFECT_MOB((short) 0x39E),//
 	TALK_MONSTER((short) 0x39F),
-	////////////NPC//////////////////////
-	SPAWN_NPC_REQUEST_CONTROLLER((short) 0x3D8),
 
 	// Channel
 	INVENTORY_OPERATION((short) 0x47),//25
@@ -114,17 +113,20 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	SPAWN_PORTAL((short) 0x186),//61
 	MECH_PORTAL((short) 0x6F),//62
 	ECHO_MESSAGE((short) 0x6F),//63
-	SERVERMESSAGE((short) 0x70),//65
-	ITEM_OBTAIN((short) 0x71),//68
-	PIGMI_REWARD((short) 0x72),//6C
-	OWL_OF_MINERVA((short) 0x73),//6D
-	OWL_RESULT((short) 0x74),//6E
-	ENGAGE_REQUEST((short) 0x75),//6F
-	ENGAGE_RESULT((short) 0x76),//70
-	WEDDING_GIFT((short) 0x77),//71
-	WEDDING_MAP_TRANSFER((short) 0x78),//72
-	USE_CASH_PET_FOOD((short) 0x79),//74
-	YELLOW_CHAT((short) 0x7F),//75
+	
+	SERVERMESSAGE((short) 0x82),
+	ITEM_OBTAIN((short) 0x83),
+	PIGMI_REWARD((short) 0x84),
+	OWL_OF_MINERVA((short) 0x85),
+	OWL_RESULT((short) 0x86),
+	ENGAGE_REQUEST((short) 0x87),
+	ENGAGE_RESULT((short) 0x88),
+	WEDDING_GIFT((short) 0x89),
+	
+	WEDDING_MAP_TRANSFER((short) 0x90),
+	USE_CASH_PET_FOOD((short) 0x92),
+	YELLOW_CHAT((short) 0x93),
+	
 	SHOP_DISCOUNT((short) 0x7C),//76
 	CATCH_MOB((short) 0x7D),//77
 	MAKE_PLAYER_NPC((short) 0x7B),//78
@@ -226,30 +228,33 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	REWARD((short) 0x129),//10B
 	SKILL_MACRO((short) 0x12A),//10C //127 Outdated?
 	FARM_OPEN((short) 0x999),//10E
-	CS_OPEN((short) 0x12B),//110
-	REMOVE_BG_LAYER((short) 0x12E),//111
-	SET_MAP_OBJECT_VISIBLE((short) 0x12F),//112
-	RESET_SCREEN((short) 0x12C),//12E?
-	MAP_BLOCKED((short) 0x12D),//12F?
-	SERVER_BLOCKED((short) 0x130),//etc
-	PARTY_BLOCKED((short) 0x131),//etc
-	SHOW_EQUIP_EFFECT((short) 0x132),//etc
-	MULTICHAT((short) 0x203),//118 <-- need to test this on v145 to confirm up to map effect.
-	WHISPER((short) 0x204),//119
-	SPOUSE_CHAT((short) 0x205),//11B
-	BOSS_ENV((short) 0x13A),//v145 Confirmed
-	MOVE_ENV((short) 0x13B),//v145 Confirmed
-	UPDATE_ENV((short) 0x13C),//v145 Confirmed
-	MAP_EFFECT((short) 0x13E),//v145 Confirmed
-	CASH_SONG((short) 0x14B),//v145 Guess
-	GM_EFFECT((short) 0x141),//v145 , No d/c, but is it right?
-	OX_QUIZ((short) 0x142),//v145 Guess
-	GMEVENT_INSTRUCTIONS((short) 0x143),//v145, Confirmed!
-	CLOCK((short) 0x144),//v145 Confirmed!
-	BOAT_MOVE((short) 0x145),//v145 Guess
-	BOAT_STATE((short) 0x147),//v145 Guess
-	STOP_CLOCK((short) 0x148),//12D
-	ARIANT_SCOREBOARD((short) 0x14A),//12F
+	
+	CS_OPEN((short) 0xFFF),//110
+	REMOVE_BG_LAYER((short) 0xFFF),//111
+	SET_MAP_OBJECT_VISIBLE((short) 0xFFF),//112
+	RESET_SCREEN((short) 0xFFF),//12E?
+	MAP_BLOCKED((short) 0xFFF),//12F?
+	SERVER_BLOCKED((short) 0xFFF),//etc
+	PARTY_BLOCKED((short) 0xFFF),//etc
+	SHOW_EQUIP_EFFECT((short) 0xFFF),//etc
+	MULTICHAT((short) 0xFFF),//118 <-- need to test this on v145 to confirm up to map effect.
+	
+	WHISPER((short) 0x1B6),
+	SPOUSE_CHAT((short) 0x1B7),
+	BOSS_ENV((short) 0x1B8),
+	MOVE_ENV((short) 0x1B9),
+	UPDATE_ENV((short) 0xFFF),
+	MAP_EFFECT((short) 0x1C0),
+	CASH_SONG((short) 0x1C1),
+	GM_EFFECT((short) 0x1C2),
+	OX_QUIZ((short) 0x1C3),
+	GMEVENT_INSTRUCTIONS((short) 0x1C4),
+	CLOCK((short) 0x1C5),
+	BOAT_MOVE((short) 0x1C6),
+	BOAT_STATE((short) 0x1C7),
+	STOP_CLOCK((short) 0x1C8),
+	ARIANT_SCOREBOARD((short) 0x1C9),
+	
 	PYRAMID_UPDATE((short) 0x14E),//131
 	PYRAMID_RESULT((short) 0x14F),//132
 	BURN_RESPONSE((short) 0x15A),
@@ -264,9 +269,11 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	DIFFERENT_IP((short) 0x200),
 	ACHIEVEMENT_RATIO((short) 0x201),//13B
 	QUICK_MOVE((short) 0xFFF),//13C
+	
 	SPAWN_OBTACLE_ATOM((short) 0x203),
 	SPAWN_PLAYER((short) 0x204),//144
 	REMOVE_PLAYER_FROM_MAP((short) 0x205),//145
+	
 	CHATTEXT((short) 0x206),
 	CHATTEXT_1((short) 0x207),//170
 	CHALKBOARD((short) 0x208),//171
@@ -278,6 +285,7 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	SHOW_FIREWORKS_EFFECT((short) 0x20D),//14e
 	SHOW_NEBULITE_EFFECT((short) 0x20E),//14f
 	SHOW_FUSION_EFFECT((short) 0x20F),//150
+	
 	PVP_ATTACK((short) 0x140),
 	PVP_MIST((short) 0x141),
 	PVP_COOL((short) 0x142),
@@ -427,6 +435,7 @@ public enum SendPacketOpcode implements WritableIntValueHolder {
 	AZWAN_SPAWN_MONSTER_CONTROL((short) 0x2DB),//1CC
 	SPAWN_NPC((short) 0x3D5),// v175
 	REMOVE_NPC((short) 0x3D6),//269
+	SPAWN_NPC_REQUEST_CONTROLLER((short) 0x3D8),
 	NPC_ACTION((short) 0x3A5),//26C
 	NPC_TOGGLE_VISIBLE((short) 0x2A1),//26D
 	INITIAL_QUIZ((short) 0x2A3),//26F

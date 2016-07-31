@@ -587,9 +587,6 @@ public class MapleServerHandler extends IoHandlerAdapter implements MapleServerH
             case CREATE_SPECIAL_CHAR:
                 CharLoginHandler.CreateChar(slea, c);
                 break;
-            case CREATE_ULTIMATE:
-                CharLoginHandler.CreateUltimate(slea, c);
-                break;
             case DELETE_CHAR:
                 CharLoginHandler.DeleteChar(slea, c);
                 break;
@@ -600,7 +597,6 @@ public class MapleServerHandler extends IoHandlerAdapter implements MapleServerH
                 CharLoginHandler.Character_WithoutSecondPassword(slea, c, true, true);
                 break;
             case PART_TIME_JOB:
-                CharLoginHandler.PartJob(slea, c);
                 break;
             case CHAR_SELECT:
                 CharLoginHandler.Character_WithoutSecondPassword(slea, c, true, false);
